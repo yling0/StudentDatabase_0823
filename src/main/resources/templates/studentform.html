@@ -1,34 +1,135 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Add student</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/grayscale.min.css" rel="stylesheet">
+
 </head>
 <body>
-<form action="#" th:action="@{/process}" th:object="${student}" method="post">
-    <input type="hidden" th:field="*{id}" />
 
-    <label>First Name :</label>
-    <input th:field="*{fname}" name="first_name" placeholder="First Name" class="form-control"  type="text">
-    <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></span><br />
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/add">Add a student</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <label>Last Name :</label>
-    <input type="text" th:field="*{lname}" />
-    <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></span><br />
+<!-- Intro Header -->
+<header class="masthead">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                        <h1 class="brand-heading">Student Database</h1>
+                        <p class="intro-text">Welcome!</p>
+                        <form class="well form-horizontal" action="#" th:action="@{/process}" th:object="${student}" method="post">
+                            <input type="hidden" th:field="*{id}" />
+                            <fieldset>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">First Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                            <input th:field="*{fname}" name="first_name" placeholder="First Name" class="form-control"  type="text">
+                                            <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></span><br />
+                                        </div>
+                                </div>
 
-    <label>E-Mail :</label>
-    <input th:field="*{email}" placeholder="E-Mail Address" class="form-control"  type="email">
-    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br />
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Last Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input th:field="*{lname}" name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                        <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></span><br />
+                                    </div>
+                                </div>
 
-    <label>Phone # :</label>
-    <input th:field="*{phone}" placeholder="(845)555-1212" class="form-control" type="text"><br />
-    <!--<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br />-->
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">E-Mail</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input th:field="*{email}" placeholder="email@example.com" class="form-control"  type="email">
+                                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br />
+                                    </div>
+                                </div>
 
-    <label>School :</label>
-    <input type="text" th:field="*{school}" /><br />
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Phone Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input th:field="*{phone}" placeholder="(845)555-1212" class="form-control"  type="number">
+                                        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br />
+                                    </div>
+                                </div>
 
-    <button type="submit" class="btn btn-warning" >Submit<span class="glyphicon glyphicon-send"></span></button>
-</form>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">School</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input th:field="*{school}" name="school" placeholder="School Name" class="form-control"  type="text">
+                                        <span th:if="${#fields.hasErrors('school')}" th:errors="*{school}"></span><br />
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-warning" >Submit<span class="glyphicon glyphicon-send"></span></button>
+
+                            </fieldset>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 
 </body>
 </html>
+
+<!--<label>First Name :</label>-->
+<!--<input th:field="*{fname}" name="first_name" placeholder="First Name" class="form-control"  type="text">-->
+<!--<span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></span><br />-->
+
+<!--<label>Last Name :</label>-->
+<!--<input type="text" th:field="*{lname}" />-->
+<!--<span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></span><br />-->
+
+<!--<label>E-Mail :</label>-->
+<!--<input th:field="*{email}" placeholder="E-Mail Address" class="form-control"  type="email">-->
+<!--<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br />-->
+
+<!--<label>Phone # :</label>-->
+<!--<input th:field="*{phone}" placeholder="(845)555-1212" class="form-control" type="text"><br />-->
+<!--&lt;!&ndash;<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br />&ndash;&gt;-->
+
+<!--<label>School :</label>-->
+<!--<input type="text" th:field="*{school}" /><br />-->
