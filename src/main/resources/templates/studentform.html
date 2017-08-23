@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${student}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>First Name :</label>
+    <input th:field="*{fname}" name="first_name" placeholder="First Name" class="form-control"  type="text">
+    <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></span><br />
+
+    <label>Last Name :</label>
+    <input type="text" th:field="*{lname}" />
+    <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></span><br />
+
+    <label>E-Mail :</label>
+    <input th:field="*{email}" placeholder="E-Mail Address" class="form-control"  type="email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br />
+
+    <label>Phone # :</label>
+    <input th:field="*{phone}" placeholder="(845)555-1212" class="form-control" type="text"><br />
+    <!--<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br />-->
+
+    <label>School :</label>
+    <input type="text" th:field="*{school}" /><br />
+
+    <button type="submit" class="btn btn-warning" >Submit<span class="glyphicon glyphicon-send"></span></button>
+</form>
+
+</body>
+</html>
